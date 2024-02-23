@@ -1,0 +1,10 @@
+to remove the top line,
+
+~/.mozilla/firefox/profile/chrome/userChrome.css
+
+modification is needed.
+
+#profile can be found in Firefox, help > troubleshooting mode > about:support in webpage address.
+
+the file is copied as userChrome.css
+
