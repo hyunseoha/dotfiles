@@ -1,13 +1,7 @@
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-
-#tmux
-#
-if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
-    exec tmux new-session -A -s ${USER} >/dev/null 2>&1
-fi
-#[[ $TERM != "screen" ]] && exec tmux
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -94,6 +88,10 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
+
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -106,7 +104,6 @@ source $ZSH/oh-my-zsh.sh
 # eXAmple aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # directory moving
 alias hoffice="cd /home/hyunseo/Nextcloud/work_hyunseo"
 alias aur="cd /home/hyunseo/Documents/git_repo/arch_aur"
@@ -163,5 +160,3 @@ function install_powerline_precmd() {
 if [ "$TERM" != "linux" -a -x "$(command -v powerline-shell)" ]; then
     install_powerline_precmd
 fi
-
-
