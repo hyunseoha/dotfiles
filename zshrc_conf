@@ -88,10 +88,6 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
-fi
-
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -139,9 +135,10 @@ export EDITOR=emacs
 
 #DOOM plugin
 export PATH="$HOME/.config/emacs/bin:$PATH"
-
 #virsh_net bash script
 export PATH="$HOME/Documents/sh_files/kvm:$PATH"
+#ENVIRONMENT of envy_monitor_bright
+export PATH="$HOME/Documents/sh_files/laptop_bright:$PATH"
 
 #powerline-shell
 function powerline_precmd() {
