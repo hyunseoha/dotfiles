@@ -192,3 +192,7 @@
        :config
        ;;literate
        (default +bindings +smartparens))
+
+       ;; Use xclip to interact with the system clipboard
+       ;;(setq select-enable-clipboard t)
+       ;;(setq interprogram-paste-function 'xclip-selection-value)
