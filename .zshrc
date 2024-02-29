@@ -1,5 +1,10 @@
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+#KOrean input EXPORT
+export GTK_IM_MODULE=kime
+export QT_IM_MODULE=kime
+export XMODIFIERS=@im=kime
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -8,7 +13,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="spaceship"
+#ZSH_THEME="spaceship"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -72,8 +77,6 @@ ZSH_THEME="spaceship"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-#export TMUX_ZSH_AUTOSTART=true
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -99,44 +102,62 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # eXAmple aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# directory moving
-alias hoffice="cd /home/hyunseo/Nextcloud/work_hyunseo"
-alias aur="cd /home/hyunseo/Documents/git_repo/arch_aur"
-alias git_hub="cd ~/Documents/git_repo"
-alias memo="cd /home/hyunseo/Nextcloud/personal_hyunseo/memo"
-alias test_folder="cd /home/hyunseo/Nextcloud/2020-08-31-BMDV-5GNPR_Data/Oeffentlichkeitsarbeit/20230703_LEO_WissPaper/power_measure/iperf3_bidirection/iperf3_bidirection_test_script/cp_config_trial_1"
-
-
-# sudo removal
-alias pacman="sudo pacman"
-
-# Ranger config
-alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-
-# pavuaudio problem removal
-alias pa_removal="rm ~/.config/pulse/*"
-
-# openconnect-sso
-# export QTWEBENGINE_DISABLE_SANDBOX=1
-# export OPENSSL_CONF=~/.my_ssl.conf
-
-# anyconnect running
-alias anyconnect="/opt/cisco/anyconnect/bin/vpnui"
-
-# nextcloud app
-alias nextcloud="~/Nextcloud2/nextcloud_app/Nextcloud-3.10.1-x86_64.AppImage"
-
-# messung_shortcut
-alias messen="cd /home/hyunseo/Nextcloud2/2020-08-31-BMDV-5GNPR_Data/Oeffentlichkeitsarbeit/20230703_LEO_WissPaper/power_consumption_agains_gains/uplink_test"
+source ~/.alias.zsh
+# cd command
+#alias .="cd"
+#alias ..="cd .."
+#
+## directory moving
+#alias hoffice="cd /home/hyunseo/Nextcloud/work_hyunseo"
+#alias aur="cd /home/hyunseo/Documents/git_repo/arch_aur"
+#alias git_hub="cd ~/Documents/git_repo"
+#alias memo="cd /home/hyunseo/Nextcloud/personal_hyunseo/memo"
+#alias test_folder="cd /home/hyunseo/Nextcloud/2020-08-31-BMDV-5GNPR_Data/Oeffentlichkeitsarbeit/20230703_LEO_WissPaper/power_measure/iperf3_bidirection/iperf3_bidirection_test_script/cp_config_trial_1"
+# Korean INPUT alias
+#alias sway='env XDG_CURRENT_DESKTOP=sway GTK_IM_MODULE=kime QT_IM_MODULE=kime XMODIFIERS=@im=kime sway'
+## sudo removal
+#alias pacman="sudo pacman"
+#
+## Ranger config
+#alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+#
+## pavuaudio problem removal
+#alias pa_removal="rm ~/.config/pulse/*"
+#
+## anyconnect running
+#alias anyconnect="/opt/cisco/anyconnect/bin/vpnui"
+#
+## nextcloud app
+#alias nextcloud="~/Nextcloud2/nextcloud_app/Nextcloud-3.10.1-x86_64.AppImage"
+#
+## messung_shortcut
+#alias messen="cd /home/hyunseo/Nextcloud2/2020-08-31-BMDV-5GNPR_Data/Oeffentlichkeitsarbeit/20230703_LEO_WissPaper/power_consumption_agains_gains/uplink_test"
 
 # designate the EDITOR
 export EDITOR=emacs
 
 #DOOM plugin
 export PATH="$HOME/.config/emacs/bin:$PATH"
-
 #virsh_net bash script
 export PATH="$HOME/Documents/sh_files/kvm:$PATH"
+#ENVIRONMENT of envy_monitor_bright
+export PATH="$HOME/Documents/sh_files/laptop_bright:$PATH"
+
+#powerline-shell
+function powerline_precmd() {
+    PS1="$(powerline-shell --shell zsh $?)"
+}
+
+function install_powerline_precmd() {
+  for s in "${precmd_functions[@]}"; do
+    if [ "$s" = "powerline_precmd" ]; then
+      return
+    fi
+  done
+  precmd_functions+=(powerline_precmd)
+}
+
+if [ "$TERM" != "linux" -a -x "$(command -v powerline-shell)" ]; then
+    install_powerline_precmd
+fi
+
