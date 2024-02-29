@@ -77,7 +77,9 @@ output $home_monitor position 0,0
 
     # Start your launcher
     bindsym $mod+d exec $menu
-
+    
+    # lock the screen
+    bindsym Mod4+l exec swaylock --ignore-empty-password --show-failed-attempts --color 1e1e1e
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -225,3 +227,9 @@ input "1739:52772:SYNA32B0:00_06CB:CE24_Touchpad" {
       tap enabled
       natural_scroll enabled
 }
+
+# Notification Daemon
+exec swaync
+
+# Toggle control center
+bindsym $mod+Shift+n exec swaync-client -t -sw
