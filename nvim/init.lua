@@ -11,11 +11,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
---require("lazy").setup(plugins, opts)
---require("lazy").setup({
---	{"nvim-treesitter/nvim-treesitter",
---	build = ":TSUpdate"}
---})
 
 require("lazy").setup({ 
 	"catppuccin/nvim",
@@ -78,21 +73,6 @@ vim.cmd.colorscheme "catppuccin"
 vim.wo.number = true
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-- clipboard using
+vim.opt.clipboard = "unnamedplus"
 

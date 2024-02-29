@@ -1,0 +1,15 @@
+kime 3.0.2-2
+kime-debug 3.0.2-2
+nordvpn-bin 3.17.2-1
+nordvpn-bin-debug 3.17.2-1
+nvm 0.39.7-1
+swaync 0.10.0-1
+swaync-debug 0.10.0-1
+timer-bin 1.4.1-1
+timer-bin-debug 1.4.1-1
+tmux-plugin-manager 3.1.0-1
+ttf-nanumgothic_coding 2.5-2
+vscodium 1.85.2.24019-2
+vscodium-debug 1.85.2.24019-2
+yay 12.3.0-1
+yay-debug 12.3.0-1
