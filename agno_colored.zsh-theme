@@ -1,0 +1,1 @@
+/home/hyunseo/.oh-my-zsh/themes/agno_colored.zsh-theme
