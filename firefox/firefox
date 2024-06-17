@@ -4,7 +4,9 @@ to remove the top line,
 
 modification is needed.
 
-#profile can be found in Firefox, help > troubleshooting mode > about:support in webpage address.
+First of all, go to about:config, and change the value of toolkit.legacyUserProfileCustomizations.stylesheets to true.
 
-the file is copied as userChrome.css
+#profile can be found in Firefox, help > Troubleshooting Information
 
+the file is copied as \chrome\userChrome.css
+if chomre directory is not found, make one.
